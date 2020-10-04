@@ -1,0 +1,28 @@
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Chatroom
+    script.
+        let username = !{JSON.stringify(username)}
+        let room = !{JSON.stringify(room)}
+    script(src="/init.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js")
+    link(rel="stylesheet" href="/style.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous")
+    script(src="/script.js" defer)
+body
+    div(class="w-screen bg-purple-300 h-screen p-4 pb-8")
+        div(class="container mx-auto h-full bg-gray-200 rounded-md flex flex-col")
+            div(id="messages-overflow" class="flex-grow overflow-auto")
+                div(id="messages-container" class="p-6")
+            div(class="flex flex-row bg-white p-6 shadow border-t-2 border-gray-500 rounded-b-md")
+                input(
+                    id="message-input"
+                    class="flex-grow border-2 rounded-md focus:outline-none focus:border-gray-700 px-2 py-1 border-gray-600 " type="text"
+                )
+                button(
+                    id="send-message-button"
+                    class="focus:outline-none focus:border-purple-700 border-transparent border-2  text-xl bg-purple-500 text-white rounded-md ml-4 py-1 px-4"
+                ) send
+
